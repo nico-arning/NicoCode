@@ -14,16 +14,19 @@ A complete Nextflow pipeline for processing BRIDGE RNA-seq data that:
 - Generates visualization plots
 - Automatically compiles results into PowerPoint presentations
 
-#### Key Files:
-- **BarcodeSetups/** - Barcode information files
-- **Configs/** - Pipeline configuration files
-- **BRIDGE.sh** - Wrapper bash script for the Nextflow pipeline
-- **bridge_local.nf** - Nextflow pipeline containing all analysis steps
-- **bridge_library.py** - Core Python library with classes and functions
-- **differential_expression_analysis.R** - R script for DE analysis
-- **make_powerpoint.py** - Creates presentations from analysis results
-- **setup_R.R** - Sets up required R packages
-- **setup_bash.sh** - Configures the Ubuntu environment
+#### Key Files
+
+| File/Directory | Description |
+|----------------|-------------|
+| `BarcodeSetups/` | Barcode information files |
+| `Configs/` | Pipeline configuration files |
+| `BRIDGE.sh` | Wrapper bash script for the Nextflow pipeline |
+| `bridge_local.nf` | Nextflow pipeline containing all analysis steps |
+| `bridge_library.py` | Core Python library with classes and functions |
+| `differential_expression_analysis.R` | R script for DE analysis |
+| `make_powerpoint.py` | Creates presentations from analysis results |
+| `setup_R.R` | Sets up required R packages |
+| `setup_bash.sh` | Configures the Ubuntu environment |
 
 #### Configuration
 
