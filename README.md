@@ -18,14 +18,18 @@ A complete Nextflow pipeline for processing BRIDGE RNA-seq data that:
 
 | File/Directory | Description |
 |----------------|-------------|
-| `BarcodeSetups/` | Barcode information files |
-| `Configs/` | Pipeline configuration files |
-| `BRIDGE.sh` | Wrapper bash script for the Nextflow pipeline |
+| `BarcodeSetups/` | Barcode information files. Necessary for STARsolo step of the pipeline |
+| `Configs/` | Pipeline configuration files. You need to write these |
+| `BRIDGE.sh` | Wrapper bash script for the Nextflow pipeline. Amend with own working directory etc |
 | `bridge_local.nf` | Nextflow pipeline containing all analysis steps |
 | `bridge_library.py` | Core Python library with classes and functions |
 | `differential_expression_analysis.R` | R script for DE analysis |
+| `differential_expression_library.R` | Core R library with all the functions |
 | `make_powerpoint.py` | Creates presentations from analysis results |
-| `setup_R.R` | Sets up required R packages |
+| `deseq_visualisation.py` | Creates visualisations from deseq results |
+| `requirements.txt` | Python dependencies |
+| `bridge_env.yml` | Conda environment file |
+| `setup_R.R` | Sets up required R packages. Is an absolute bitch. |
 | `setup_bash.sh` | Configures the Ubuntu environment |
 
 #### Configuration
@@ -45,6 +49,8 @@ Before running any analysis, you must create a config file with these parameters
 | `genome_dir` | Directory containing STAR genome index |
 | `trim_mode` | Trimming strictness (1-4, with 4 being strictest) |
 | `email` | Notification email address |
+
+The example config contained here includes more details.
 
 #### Usage
 
@@ -76,28 +82,37 @@ Specialized analytical notebooks extending the primary pipeline:
 | Notebook | Description |
 |----------|-------------|
 | `clustering_analysis_for_publication_normalised_deseq.ipynb` | Compares Alithea vs bulk RNA-seq; MoA clustering; PCA/UMAP; Mahalanobis distances |
+| `clustering_analysis_from_normalised.ipynb` | General clustering analysis from normalized data |
+| `clustering_analysis_from_normalised_monheim.ipynb` | Spodoptera specific clustering analysis |
+| `basic_analysis_transcriptomics.ipynb` | Entry-level analysis of transcriptomics data |
+| `detailed_analysis_transcriptomics.ipynb` | Advanced transcriptomics analysis techniques |
 | `shap_analysis.ipynb` | SHAP values for gene expression marker identification |
 | `go_analysis.ipynb` | Gene Ontology enrichment analysis |
-| `fill_genestack_table.ipynb` | Converts matrices to Genestack format |
+| `fill_genestack_table.ipynb` | Converts own metadata and count tables to Genestack format |
 | `plotting4tabea.ipynb` | Alithea sequencing parameter visualization |
-| `differential_expression_analysis.ipynb` | DEG analysis with multiple testing correction |
-| `pathway_enrichment.ipynb` | GSEA and pathway analysis |
+| `check_deduplication.ipynb` | Validation of read deduplication processes |
+| `overlap_gene_counts.ipynb` | Analysis of gene count overlaps between samples |
+| `minumum_paper.ipynb` | Minimal analysis required for the fungi publication |
 
 ### 3. multiomics
 
 Analysis of paired cell painting and transcriptomic datasets:
 
-- `picassoXbridge.ipynb`: Multi-omics analyses including MoFA
-- `multi_omics_explore.ipynb`: Exploratory multi-omics analysis of basic parameters
+| Notebook | Description |
+|----------|-------------|
+| `picassoXbridge.ipynb` | Multi-omics analyses including MoFA |
+| `multi_omics_explore.ipynb` | Exploratory multi-omics analysis of basic parameters |
 
 ### 4. cell_painting
 
 Cell painting data processing with a focus on quality control:
 
-- `prep_files.ipynb`: Preparation for QC analysis
-- `qc_cell_painting.ipynb`: Analysis of batch effects (plate position, timepoints, lenses)
-- `ATPase.ipynb`: Statistical analysis of CellProfiler columns related to ATPase MoA
-- `MaMel.ipynb`: Statistical analysis of CellProfiler columns related to MaMel MoA
+| Notebook | Description |
+|----------|-------------|
+| `prep_files.ipynb` | Preparation for QC analysis |
+| `qc_cell_painting.ipynb` | Analysis of batch effects (plate position, timepoints, lenses) |
+| `ATPase.ipynb` | Statistical analysis of CellProfiler columns related to ATPase MoA |
+| `MaMel.ipynb` | Statistical analysis of CellProfiler columns related to MaMel MoA |
 
 ## Transcriptomics Data Structure
 
@@ -137,4 +152,4 @@ Key requirements (see `bridge_env.yml` for full list):
 
 ## Contact
 
-For questions or support, please contact [n.arning@gmx.de].
+For questions or support, please contact my private email: n.arning@gmx.de.
