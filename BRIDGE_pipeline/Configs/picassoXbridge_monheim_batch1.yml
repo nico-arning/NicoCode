@@ -1,0 +1,13 @@
+accession: "20250106_PicassoXBridge_lysate_fullservice"  #Folder in the datapon
+plate_format: 96 # How many wells per plate
+read_pooling: "Treatment_plate1,Treatment_plate2,Treatment_plate3,Treatment_plate4,Treatment_plate5,Treatment_plate6" # Prefix to use as regex for read files. Here for examples the reads are names Treatment_plate_1_R1.fastq.gz & Treatment_plate_1_R2.fastq.gz, etc. Corresponds to the sheets on the metadata file
+treatment_sheets: "Treatment_plate1,Treatment_plate2,Treatment_plate3,Treatment_plate4,Treatment_plate5,Treatment_plate6" # Sheets in the metadata file that contain the treatment information for each plate. Must correspond to the read_pooling in order
+concentration_sheets: "concentration_plate1,concentration_plate2,concentration_plate3,concentration_plate4,concentration_plate5,concentration_plate6" # Same as treatment_sheets, but for the concentration information
+barcode_setup: "alithea_kit.sh" # Barcode setup file, used for STAR. Contains information on which barcodes and where they start and end in the red
+gtf: "GCF_023101765.2_AGI-APGP_CSIRO_Sfru_2.0_genomic.gtf" # GTF file for the genome annotation
+genome: "" # Leave empty if there is just one genome in the order
+trim_mode: 1 # different rates of trimming. 1 is the default which is no trimming. No trimming needed for STAR
+genome_dir:  "SpodopteraFrugiperda" # Directory where the genome files are located inside the datapond RefGenomes folder
+meta_data: "full_raw_matrix_and_meta.csv" # This is the name of the excel metadata file inside the MetaData folder in the experiment folder in Datapond. If you already have a count table (in the case of alithea full service), you can specify that here and the pipeline will start from the count table with DeSeq2
+orgdb: "org.Sfrugiperda.eg.db" # OrgDb file for the organism, used for GO enrichment analysis. Needs to be present in the RefGenomes folder
+eggnog: "SpodopteraFrugiperda.emapper.annotations" # EggNOG annotations file, used for functional enrichment analysis. Needs to be present in the RefGenomes folder
